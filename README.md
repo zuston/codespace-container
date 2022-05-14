@@ -1,3 +1,8 @@
+This project is used by myself to build github codespace(remote vscode).
+
+<hr>
+Forked from microsoft/vscode-remote-try-java
+
 # Try Out Development Containers: Java
 
 [![Open in Remote - Containers](https://img.shields.io/static/v1?label=Remote%20-%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java)
