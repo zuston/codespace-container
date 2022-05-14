@@ -28,8 +28,8 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends vim python python3.9-distutils
 
-RUN mkdir /workspace/dev_container_install_dir
-WORKDIR /workspace/dev_container_install_dir
+RUN mkdir -p /dev_container_install_dir
+WORKDIR /dev_container_install_dir
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python3.9 get-pip.py
 
