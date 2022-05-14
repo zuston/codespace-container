@@ -6,6 +6,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/java:0-${VARIANT}
 # [Option] Install Maven
 ARG INSTALL_MAVEN="true"
 ARG MAVEN_VERSION=""
+
 # [Option] Install Gradle
 ARG INSTALL_GRADLE="true"
 ARG GRADLE_VERSION=""
@@ -23,4 +24,20 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 
-RUN apt-get -y install vim 
+# Install the dependencies of vim/python27
+RUN apt-get -y install vim python python3.9-distutils
+
+RUN mkdir /workspace/dev_container_install_dir
+WORKDIR /workspace/dev_container_install_dir
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+RUN python3.9 get-pip.py
+
+RUN mv /usr/bin/python /usr/bin/python27
+RUN ln -s /usr/bin/python3.9 /usr/bin/python
+RUN python -m pip install tensorflow==2.8.0
+
+# Install golang 1.18.2
+RUN curl https://go.dev/dl/go1.18.2.linux-amd64.tar.gz \
+    && tar zxvf go1.18.2.linux-amd64.tar.gz
+    
+RUN export PATH=$PATH:/workspace/dev_container_install_dir/go/bin
