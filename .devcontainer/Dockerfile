@@ -41,3 +41,8 @@ RUN curl https://go.dev/dl/go1.18.2.linux-amd64.tar.gz \
     && tar zxvf go1.18.2.linux-amd64.tar.gz
     
 RUN export PATH=$PATH:/workspace/dev_container_install_dir/go/bin
+
+# Set the maven settings.xml
+RUN mkdir /home/vscode/.m2
+ADD settings.xml /home/vscode/.m2
+RUN chown -R vscode:vscode /home/vscode/.m2
