@@ -40,10 +40,7 @@
 	"remoteUser": "vscode",
 	"features": {
 		"docker-in-docker": "latest",
-		"git": "latest",
-		"sshd": "latest",
 		"homebrew": "latest",
-		"python": "3.9",
 		"golang": "1.18"
 	}
 }
