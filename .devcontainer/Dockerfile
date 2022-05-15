@@ -35,7 +35,8 @@ RUN python3.9 get-pip.py
 
 RUN mv /usr/bin/python /usr/bin/python27
 RUN ln -s /usr/bin/python3.9 /usr/bin/python
-RUN python -m pip install tensorflow==2.8.0
+
+#RUN python -m pip install tensorflow==2.8.0
 
 # Install golang 1.18.2
 #RUN curl https://go.dev/dl/go1.18.2.linux-amd64.tar.gz \
