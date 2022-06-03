@@ -26,7 +26,7 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 
 # Install the dependencies of vim/python27
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends vim python python3.9-distutils
+    && apt-get -y install --no-install-recommends vim python python3.9-distutils fuse
 
 RUN mkdir -p /dev_container_install_dir
 WORKDIR /dev_container_install_dir
